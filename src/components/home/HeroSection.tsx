@@ -188,7 +188,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
             >
-          {/* Main Logo */}
+          {/* Main Logo - Increased size for better impact */}
           <motion.div
             className="mt-16 mb-3 flex justify-center"
             initial={{ opacity: 0, scale: 0.8 }}

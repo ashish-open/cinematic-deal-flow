@@ -37,7 +37,7 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="flex items-center justify-between h-24">
-          {/* Logo */}
+          {/* Logo - Updated size for better visibility */}
           <Link to="/" className="flex items-center group">
             <motion.img
               src="/Untitled-2-02.png"
