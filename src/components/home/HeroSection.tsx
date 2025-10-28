@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 
 // Version: 2.0 - Updated with image logos and proper sizing
+// Force Tailwind rebuild with explicit size classes
 
 const HeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -201,6 +202,7 @@ const HeroSection = () => {
               src="/logo-01.png"
               alt="Deal Right Logo"
               className="h-40 sm:h-48 md:h-64 lg:h-72 w-auto"
+              // Tailwind classes: h-40 h-48 h-64 h-72 for proper sizing
               whileHover={{ 
                 scale: 1.05,
                 filter: "drop-shadow(0 0 30px hsl(43 55% 51% / 0.5))"

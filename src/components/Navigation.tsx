@@ -45,6 +45,7 @@ const Navigation = () => {
               src="/Untitled-2-02.png"
               alt="Deal Right Logo"
               className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto"
+              // Tailwind classes: h-20 h-24 h-28 h-32 for proper sizing
               whileHover={{ 
                 scale: 1.05,
                 filter: "drop-shadow(0 0 15px hsl(43 55% 51% / 0.5))"

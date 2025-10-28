@@ -3,6 +3,11 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  safelist: [
+    'h-20', 'h-24', 'h-28', 'h-32', // Navigation logo sizes
+    'h-40', 'h-44', 'h-48', 'h-52', 'h-56', 'h-64', 'h-68', 'h-72', 'h-76', // Hero logo sizes
+    'pt-4', 'mt-16', 'pt-8' // Spacing classes
+  ],
   prefix: "",
   theme: {
     container: {
