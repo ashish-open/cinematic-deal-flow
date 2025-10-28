@@ -3,6 +3,8 @@ import { ChevronDown, Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 
+// Version: 2.0 - Updated with image logos and proper sizing
+
 const HeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
