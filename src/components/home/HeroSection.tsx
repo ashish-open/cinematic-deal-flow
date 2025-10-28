@@ -102,7 +102,7 @@ const HeroSection = () => {
               <motion.img
                 src="/logo-01.png"
                 alt="Deal Right Logo"
-                className="h-36 sm:h-46 md:h-56 lg:h-64 w-auto mx-auto"
+                className="h-44 sm:h-52 md:h-68 lg:h-76 w-auto mx-auto"
                 animate={{
                   scale: [1, 1.05, 1],
                   filter: [
@@ -177,7 +177,7 @@ const HeroSection = () => {
       <AnimatePresence>
         {showContent && (
           <motion.div 
-            className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
+            className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8"
             style={{ opacity }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -190,7 +190,7 @@ const HeroSection = () => {
             >
           {/* Main Logo */}
           <motion.div
-            className="mb-3 flex justify-center"
+            className="mt-16 mb-3 flex justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
@@ -198,7 +198,7 @@ const HeroSection = () => {
             <motion.img
               src="/logo-01.png"
               alt="Deal Right Logo"
-              className="h-32 sm:h-42 md:h-56 lg:h-64 w-auto"
+              className="h-40 sm:h-48 md:h-64 lg:h-72 w-auto"
               whileHover={{ 
                 scale: 1.05,
                 filter: "drop-shadow(0 0 30px hsl(43 55% 51% / 0.5))"
