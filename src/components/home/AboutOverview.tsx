@@ -73,7 +73,6 @@ const AboutOverview = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
             className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-gold group cursor-pointer"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
