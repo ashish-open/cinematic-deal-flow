@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const AboutOverview = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { margin: '-100px' });
 
   return (
     <section id="about-overview" className="py-20 md:py-32 bg-background relative overflow-hidden">
@@ -69,24 +69,101 @@ const AboutOverview = () => {
             </motion.div>
           </motion.div>
 
-          {/* Visual Element - Placeholder for image/video */}
+          {/* Visual Element - Concert Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-secondary to-card shadow-gold"
+            className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-gold group cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
           >
-            {/* Placeholder for video/cinemagraph */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-gold rounded-full flex items-center justify-center animate-glow">
-                  <span className="text-4xl font-playfair font-bold text-background">DR</span>
+            <motion.img
+              src="/concert-image.jpeg"
+              alt="Deal Right Entertainment Event"
+              className="w-full h-full object-cover"
+              initial={{ scale: 1.1 }}
+              animate={isInView ? { scale: 1 } : { scale: 1.1 }}
+              whileHover={{ 
+                scale: 1.1,
+                filter: 'brightness(1.2)'
+              }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            />
+            
+            {/* Overlay for better text readability */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+              initial={{ opacity: 0.6 }}
+              whileHover={{ opacity: 0.8 }}
+              transition={{ duration: 0.3 }}
+            />
+            
+            {/* Brand overlay with animations */}
+            <motion.div 
+              className="absolute bottom-6 left-6 right-6"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              whileHover={{ y: -5 }}
+            >
+              <motion.div 
+                className="bg-black/40 backdrop-blur-sm rounded-lg p-4 border border-primary/20"
+                whileHover={{ 
+                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                  borderColor: 'hsl(43 70% 61%)'
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex items-center gap-3">
+                  <motion.div 
+                    className="w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center"
+                    whileHover={{ 
+                      scale: 1.2,
+                      rotate: 360,
+                      boxShadow: '0 0 20px hsl(43 55% 51% / 0.8)'
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <span className="text-lg font-playfair font-bold text-background">DR</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: -10 }}
+                    animate={{ x: 0 }}
+                    transition={{ delay: 0.8 }}
+                  >
+                    <motion.p 
+                      className="text-white font-semibold text-sm"
+                      whileHover={{ color: 'hsl(43 70% 61%)' }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      Deal Right Entertainments
+                    </motion.p>
+                    <motion.p 
+                      className="text-primary text-xs"
+                      animate={{ 
+                        color: ['hsl(43 70% 61%)', 'hsl(43 55% 51%)', 'hsl(43 70% 61%)']
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      Since 2015
+                    </motion.p>
+                  </motion.div>
                 </div>
-                <p className="text-muted-foreground text-sm">
-                  Since 2015
-                </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
+            
+            {/* Hover shimmer effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent"
+              initial={{ x: '-100%' }}
+              whileHover={{ x: '100%' }}
+              transition={{ duration: 0.6 }}
+            />
           </motion.div>
         </div>
       </div>

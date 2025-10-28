@@ -12,7 +12,7 @@ const projects = [
     location: 'Bangalore, India',
     year: '2023',
     clients: '150+',
-    image: '/api/placeholder/600/400',
+    image: '/portfolio-1.jpeg',
     description: 'A premium residential complex featuring modern amenities and sustainable design principles.',
     tags: ['Residential', 'Luxury', 'Sustainable'],
     status: 'Completed',
@@ -25,7 +25,7 @@ const projects = [
     location: 'Mumbai, India',
     year: '2024',
     clients: '50,000+',
-    image: '/api/placeholder/600/400',
+    image: '/portfolio-2.jpeg',
     description: 'A three-day music festival featuring international and local artists across multiple genres.',
     tags: ['Music', 'Festival', 'Live Events'],
     status: 'Ongoing',
@@ -38,7 +38,7 @@ const projects = [
     location: 'Chennai, India',
     year: '2024',
     clients: '1',
-    image: '/api/placeholder/600/400',
+    image: '/portfolio-3.jpeg',
     description: 'A compelling documentary showcasing the journey of a leading tech company.',
     tags: ['Documentary', 'Corporate', 'Storytelling'],
     status: 'In Production',
@@ -51,7 +51,7 @@ const projects = [
     location: 'Delhi, India',
     year: '2023',
     clients: '200+',
-    image: '/api/placeholder/600/400',
+    image: '/portfolio-4.jpeg',
     description: 'A state-of-the-art commercial complex designed for modern businesses.',
     tags: ['Commercial', 'Office Space', 'Modern'],
     status: 'Completed',
@@ -64,7 +64,7 @@ const projects = [
     location: 'Kolkata, India',
     year: '2024',
     clients: '25,000+',
-    image: '/api/placeholder/600/400',
+    image: '/portfolio-5.jpeg',
     description: 'A series of cultural events celebrating regional arts and traditions.',
     tags: ['Cultural', 'Arts', 'Regional'],
     status: 'Planning',
@@ -77,7 +77,7 @@ const projects = [
     location: 'Hyderabad, India',
     year: '2024',
     clients: '1',
-    image: '/api/placeholder/600/400',
+    image: '/portfolio-6.jpeg',
     description: 'A high-impact commercial for a leading consumer brand.',
     tags: ['Commercial', 'Branding', 'Advertising'],
     status: 'Completed',
@@ -90,7 +90,7 @@ const categories = ['All', 'Realty', 'Entertainment', 'Production'];
 const PortfolioShowcase = () => {
   const ref = useRef(null);
   const containerRef = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { margin: '-100px' });
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
@@ -213,29 +213,27 @@ const PortfolioShowcase = () => {
                 className="h-full"
               >
                 <Card className="bg-card/80 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-500 h-full group cursor-pointer relative overflow-hidden">
-                  {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"
-                      animate={{
-                        opacity: hoveredProject === project.id ? 0.8 : 0.3
-                      }}
-                    />
-                    
-                    {/* Placeholder for actual image */}
-                    <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                      <motion.div
-                        className="text-4xl text-muted-foreground"
-                        animate={{
-                          scale: hoveredProject === project.id ? 1.2 : 1,
-                          rotate: hoveredProject === project.id ? 5 : 0
+                    {/* Project Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        initial={{ scale: 1.1 }}
+                        animate={{ 
+                          scale: hoveredProject === project.id ? 1.05 : 1.1,
+                          filter: hoveredProject === project.id ? 'brightness(1.1)' : 'brightness(0.9)'
                         }}
                         transition={{ duration: 0.3 }}
-                      >
-                        {project.category === 'Realty' ? '🏢' : 
-                         project.category === 'Entertainment' ? '🎵' : '🎬'}
-                      </motion.div>
-                    </div>
+                      />
+                      
+                      {/* Gradient Overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"
+                        animate={{
+                          opacity: hoveredProject === project.id ? 0.8 : 0.3
+                        }}
+                      />
 
                     {/* Overlay on Hover */}
                     <motion.div

@@ -38,14 +38,17 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl sm:text-3xl font-playfair font-bold"
-            >
-              <span className="text-gradient-gold">DEAL</span>{' '}
-              <span className="text-foreground">RIGHT</span>
-            </motion.div>
+          <Link to="/" className="flex items-center group">
+            <motion.img
+              src="/Untitled-2-02.png"
+              alt="Deal Right Logo"
+              className="h-14 sm:h-18 md:h-22 lg:h-26 w-auto"
+              whileHover={{ 
+                scale: 1.05,
+                filter: "drop-shadow(0 0 15px hsl(43 55% 51% / 0.5))"
+              }}
+              transition={{ duration: 0.3 }}
+            />
           </Link>
 
           {/* Desktop Navigation */}

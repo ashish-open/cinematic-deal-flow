@@ -13,7 +13,7 @@ const values = [
 
 const VisionSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { margin: '-100px' });
 
   return (
     <section className="py-20 md:py-32 bg-background relative overflow-hidden">

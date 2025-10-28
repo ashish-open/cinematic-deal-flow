@@ -43,7 +43,7 @@ const divisions = [
 const DivisionsShowcase = () => {
   const ref = useRef(null);
   const containerRef = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { margin: '-100px' });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const { scrollYProgress } = useScroll({

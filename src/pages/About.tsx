@@ -8,13 +8,13 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const storyRef = useRef(null);
-  const storyInView = useInView(storyRef, { once: true, margin: '-100px' });
+  const storyInView = useInView(storyRef, { margin: '-100px' });
 
   const divisionsRef = useRef(null);
-  const divisionsInView = useInView(divisionsRef, { once: true, margin: '-100px' });
+  const divisionsInView = useInView(divisionsRef, { margin: '-100px' });
 
   const valuesRef = useRef(null);
-  const valuesInView = useInView(valuesRef, { once: true, margin: '-100px' });
+  const valuesInView = useInView(valuesRef, { margin: '-100px' });
 
   const divisions = [
     {
@@ -174,7 +174,7 @@ const About = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ margin: '-100px' }}
               className="bg-card p-8 rounded-lg border border-border"
             >
               <div className="flex items-center mb-6">
@@ -192,7 +192,7 @@ const About = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ margin: '-100px' }}
               className="bg-card p-8 rounded-lg border border-border"
             >
               <div className="flex items-center mb-6">

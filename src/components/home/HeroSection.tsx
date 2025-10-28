@@ -99,26 +99,23 @@ const HeroSection = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <motion.h1
-                className="text-8xl md:text-9xl lg:text-[12rem] font-playfair font-bold"
+              <motion.img
+                src="/logo-01.png"
+                alt="Deal Right Logo"
+                className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto mx-auto"
                 animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  scale: [1, 1.05, 1]
+                  scale: [1, 1.05, 1],
+                  filter: [
+                    "drop-shadow(0 0 20px hsl(43 55% 51% / 0.3))",
+                    "drop-shadow(0 0 40px hsl(43 55% 51% / 0.5))",
+                    "drop-shadow(0 0 20px hsl(43 55% 51% / 0.3))"
+                  ]
                 }}
                 transition={{
-                  backgroundPosition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  filter: { duration: 3, repeat: Infinity, ease: "easeInOut" }
                 }}
-                style={{
-                  background: "linear-gradient(90deg, hsl(43 55% 51%), hsl(43 70% 61%), hsl(43 55% 51%))",
-                  backgroundSize: "200% 100%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
-                }}
-              >
-                DEAL RIGHT
-              </motion.h1>
+              />
             </motion.div>
           </motion.div>
         )}
@@ -191,26 +188,24 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
             >
-          {/* Main Title with Typewriter Effect */}
-          <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-playfair font-bold mb-6"
+          {/* Main Logo */}
+          <motion.div
+            className="mb-3 flex justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
           >
-            <motion.span 
-              className="text-gradient-gold inline-block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+            <motion.img
+              src="/logo-01.png"
+              alt="Deal Right Logo"
+              className="h-28 sm:h-36 md:h-48 lg:h-56 w-auto"
               whileHover={{ 
                 scale: 1.05,
-                textShadow: "0 0 30px hsl(43 55% 51% / 0.5)"
+                filter: "drop-shadow(0 0 30px hsl(43 55% 51% / 0.5))"
               }}
-            >
-              DEAL RIGHT
-            </motion.span>
-          </motion.h1>
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
 
           {/* Animated Subtitle */}
           <motion.div
@@ -300,24 +295,11 @@ const HeroSection = () => {
               <Button
                 onClick={scrollToNext}
                 size="lg"
-                className="bg-gradient-gold hover:shadow-gold transition-all duration-300 text-background font-inter font-semibold px-8 py-6 text-lg group relative overflow-hidden"
+                className="bg-gradient-gold hover:shadow-gold hover:scale-105 transition-all duration-300 text-background font-inter font-semibold px-8 py-6 text-lg group relative"
               >
-                <motion.span
-                  className="relative z-10"
-                  initial={{ opacity: 1 }}
-                  whileHover={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <span className="relative z-10">
                   Explore Our World
-                </motion.span>
-                <motion.span
-                  className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-accent to-primary text-background font-semibold"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Discover More
-                </motion.span>
+                </span>
               </Button>
             </motion.div>
 
