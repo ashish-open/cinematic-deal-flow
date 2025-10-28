@@ -119,16 +119,6 @@ const HeroSection = () => {
               >
                 DEAL RIGHT
               </motion.h1>
-              
-              {/* Subtitle during logo phase */}
-              <motion.p
-                className="text-xl md:text-2xl text-muted-foreground font-inter mt-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-              >
-                Doing Business the Right Way
-              </motion.p>
             </motion.div>
           </motion.div>
         )}
