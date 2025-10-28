@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 const HeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [showContent, setShowContent] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -19,6 +20,16 @@ const HeroSection = () => {
     const nextSection = document.getElementById('about-overview');
     nextSection?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Handle logo phase transition
+  useEffect(() => {
+    // Show logo for 3 seconds, then transition to hero content
+    const logoTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 3000);
+
+    return () => clearTimeout(logoTimer);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -36,7 +47,13 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <motion.section 
+      ref={heroRef} 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      initial={{ opacity: 0, scale: 1.1 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       {/* Cinematic Video Background */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -61,6 +78,61 @@ const HeroSection = () => {
           />
         </motion.div>
       </div>
+
+      {/* Logo Phase - Large and Centered */}
+      <AnimatePresence>
+        {!showContent && (
+          <motion.div
+            className="absolute inset-0 z-20 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ 
+              opacity: 0,
+              scale: 0.1,
+              y: -100,
+              transition: { duration: 1, ease: "easeInOut" }
+            }}
+          >
+            <motion.div
+              className="text-center"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <motion.h1
+                className="text-8xl md:text-9xl lg:text-[12rem] font-playfair font-bold"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{
+                  backgroundPosition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                }}
+                style={{
+                  background: "linear-gradient(90deg, hsl(43 55% 51%), hsl(43 70% 61%), hsl(43 55% 51%))",
+                  backgroundSize: "200% 100%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text"
+                }}
+              >
+                DEAL RIGHT
+              </motion.h1>
+              
+              {/* Subtitle during logo phase */}
+              <motion.p
+                className="text-xl md:text-2xl text-muted-foreground font-inter mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.8 }}
+              >
+                Doing Business the Right Way
+              </motion.p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Enhanced particle system */}
       <div className="absolute inset-0 opacity-40 z-10">
@@ -114,16 +186,21 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Content */}
-      <motion.div 
-        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        style={{ opacity }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
+      {/* Content - Only show after logo phase */}
+      <AnimatePresence>
+        {showContent && (
+          <motion.div 
+            className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
+            style={{ opacity }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+            >
           {/* Main Title with Typewriter Effect */}
           <motion.h1
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-playfair font-bold mb-6"
@@ -280,7 +357,9 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Enhanced Scroll indicator */}
       <motion.div
@@ -322,7 +401,7 @@ const HeroSection = () => {
           </motion.p>
         </motion.div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 
