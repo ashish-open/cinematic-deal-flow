@@ -86,6 +86,65 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.6" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px hsl(43 55% 51% / 0.3)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 40px hsl(43 55% 51% / 0.6)",
+            transform: "scale(1.02)"
+          },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "bounce-in": {
+          "0%": { 
+            opacity: "0", 
+            transform: "scale(0.3) translateY(-50px)" 
+          },
+          "50%": { 
+            opacity: "1", 
+            transform: "scale(1.05) translateY(0)" 
+          },
+          "70%": { transform: "scale(0.95)" },
+          "100%": { 
+            opacity: "1", 
+            transform: "scale(1)" 
+          },
+        },
+        "slide-up": {
+          "0%": { 
+            opacity: "0", 
+            transform: "translateY(100px)" 
+          },
+          "100%": { 
+            opacity: "1", 
+            transform: "translateY(0)" 
+          },
+        },
+        "rotate-in": {
+          "0%": { 
+            opacity: "0", 
+            transform: "rotate(-180deg) scale(0.5)" 
+          },
+          "100%": { 
+            opacity: "1", 
+            transform: "rotate(0deg) scale(1)" 
+          },
+        },
+        "morph": {
+          "0%, 100%": { borderRadius: "50% 20% 50% 20%" },
+          "25%": { borderRadius: "20% 50% 20% 50%" },
+          "50%": { borderRadius: "50% 50% 20% 20%" },
+          "75%": { borderRadius: "20% 20% 50% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +154,13 @@ export default {
         "fade-in-right": "fade-in-right 0.6s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
         "glow": "glow 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
+        "bounce-in": "bounce-in 0.8s ease-out",
+        "slide-up": "slide-up 0.6s ease-out",
+        "rotate-in": "rotate-in 0.8s ease-out",
+        "morph": "morph 4s ease-in-out infinite",
       },
     },
   },
