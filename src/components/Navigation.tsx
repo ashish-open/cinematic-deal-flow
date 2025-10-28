@@ -42,7 +42,7 @@ const Navigation = () => {
             <motion.img
               src="/Untitled-2-02.png"
               alt="Deal Right Logo"
-              className="h-14 sm:h-18 md:h-22 lg:h-26 w-auto"
+              className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto"
               whileHover={{ 
                 scale: 1.05,
                 filter: "drop-shadow(0 0 15px hsl(43 55% 51% / 0.5))"

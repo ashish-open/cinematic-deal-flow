@@ -102,7 +102,7 @@ const HeroSection = () => {
               <motion.img
                 src="/logo-01.png"
                 alt="Deal Right Logo"
-                className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto mx-auto"
+                className="h-36 sm:h-46 md:h-56 lg:h-64 w-auto mx-auto"
                 animate={{
                   scale: [1, 1.05, 1],
                   filter: [
@@ -198,7 +198,7 @@ const HeroSection = () => {
             <motion.img
               src="/logo-01.png"
               alt="Deal Right Logo"
-              className="h-28 sm:h-36 md:h-48 lg:h-56 w-auto"
+              className="h-32 sm:h-42 md:h-56 lg:h-64 w-auto"
               whileHover={{ 
                 scale: 1.05,
                 filter: "drop-shadow(0 0 30px hsl(43 55% 51% / 0.5))"
